@@ -1,0 +1,11 @@
+question,answer,category,difficulty
+What is machine learning?,Machine learning is a method of data analysis that automates analytical model building using algorithms that iteratively learn from data.,AI/ML,beginner
+How does neural network work?,Neural networks are computing systems inspired by biological neural networks. They consist of interconnected nodes that process information using a connectionist approach to computation.,AI/ML,intermediate
+What is the difference between supervised and unsupervised learning?,Supervised learning uses labeled training data to learn a mapping from inputs to outputs while unsupervised learning finds hidden patterns in data without labeled examples.,AI/ML,intermediate
+What is overfitting in machine learning?,Overfitting occurs when a model learns the training data too well including noise and outliers making it perform poorly on new unseen data.,AI/ML,beginner
+What is Python?,Python is a high-level interpreted programming language known for its simplicity and readability making it popular for data science and web development.,Programming,beginner
+How do you create a list in Python?,You can create a list in Python using square brackets: my_list = [1 2 3] or using the list() constructor: my_list = list([1 2 3]),Programming,beginner
+What is a function in Python?,A function is a reusable block of code that performs a specific task. It is defined using the def keyword followed by the function name and parameters.,Programming,beginner
+What is pandas in Python?,Pandas is a powerful data manipulation and analysis library for Python providing data structures like DataFrame and Series for handling structured data.,Programming,intermediate
+What is data science?,Data science is an interdisciplinary field that uses scientific methods processes algorithms and systems to extract knowledge and insights from structured and unstructured data.,Data Science,beginner
+What tools are commonly used in data science?,Common data science tools include Python R SQL Jupyter Notebooks Tableau PowerBI Apache Spark and various machine learning libraries like scikit-learn and TensorFlow.,Data Science,intermediate
