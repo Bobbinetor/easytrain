@@ -26,12 +26,12 @@ def cli():
 @click.argument('output_json', type=click.Path(path_type=Path))
 @click.option('--model', default='gemma2:12b', help='Ollama model to use')
 @click.option('--host', default='http://localhost:11434', help='Ollama server host')
-@click.option('--chunk-size', default=100, help='Maximum rows per chunk')
-@click.option('--overlap', default=5, help='Overlapping rows between chunks')
-@click.option('--max-text-length', default=4000, help='Maximum text length per chunk')
-@click.option('--format', 'output_format', default='jsonl', 
+@click.option('--chunk-size', default=2000, help='Target chunk size in characters')
+@click.option('--overlap', default=200, help='Overlap between chunks in characters')
+@click.option('--max-text-length', default=4000, help='Maximum chunk size in characters')
+@click.option('--format', 'output_format', default='json', 
               type=click.Choice(['json', 'jsonl']), help='Output format')
-@click.option('--timeout', default=300, help='Request timeout in seconds')
+@click.option('--timeout', default=3600, help='Request timeout in seconds (default: 1 hour)')
 @click.option('--prompt-file', type=click.Path(exists=True, path_type=Path), 
               help='Custom prompt file')
 @click.option('--verbose', '-v', is_flag=True, help='Enable verbose logging')
@@ -47,6 +47,12 @@ def convert(input_file: Path,
            prompt_file: Path,
            verbose: bool):
     """Convert any supported file to JSON dataset using Ollama LLM"""
+    
+    # Ensure output goes to datasets folder if not absolute path
+    if not output_json.is_absolute():
+        datasets_dir = Path("output/datasets")
+        datasets_dir.mkdir(parents=True, exist_ok=True)
+        output_json = datasets_dir / output_json
     
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
@@ -81,8 +87,12 @@ def convert(input_file: Path,
             timeout=timeout
         ),
         chunking=ChunkingConfig(
-            max_rows_per_chunk=chunk_size,
-            overlap_rows=overlap,
+            chunk_size=chunk_size,
+            overlap_size=overlap,
+            max_chunk_size=max_text_length,
+            # Legacy compatibility
+            max_rows_per_chunk=100,
+            overlap_rows=5,
             max_text_length=max_text_length
         ),
         output_format=output_format
