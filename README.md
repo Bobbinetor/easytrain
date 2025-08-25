@@ -511,6 +511,25 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
+## 📖 Citation
+
+If this project has been useful for your research, please consider citing the following paper:
+
+```bibtex
+@article{coppolino2025asset,
+  title={Asset Discovery in Critical Infrastructures: An LLM-Based Approach},
+  author={Coppolino, Luigi and Iannaccone, Antonio and Nardone, Roberto and Petruolo, Alfredo},
+  journal={Electronics},
+  volume={14},
+  number={16},
+  pages={3267},
+  year={2025},
+  publisher={Multidisciplinary Digital Publishing Institute}
+}
+```
+
+---
+
 <div align="center">
 
 **⭐ Star this repository if EasyTrain helps your research!**
